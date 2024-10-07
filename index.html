@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAYbox</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div id="menubar" class="fa-solid fa-bars-staggered"></div>
+        <a href="#" class="logo">
+            <img src="loginlogo.png" alt="Logo" width="30" height="30">
+            PLAY<span>box</span>
+        </a>
+
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="games.html" id="games-btn">Games</a>
+            <a href="services.html">Services</a>
+            <a href="featured.html">Featured</a>
+            <a href="reviews.html">Review</a>
+            <a href="help.html">Help</a>
+        </nav>
+
+        <!-- log in button -->
+        <div id="login-btn">
+            <button type="button" class="btn"><span>Login</span></button>
+            <i class="fa-solid fa-user-tie"></i>
+        </div>
+    </header>
+
+    <!-- login form -->
+    <div id="login-form-container">
+        <span class="fa-solid fa-xmark" id="close-login-btn"></span>
+
+        <form id="login-form">
+            <h3>user login</h3>
+            <input type="email" placeholder="email" class="box" id="email">
+            <input type="password" placeholder="password" class="box" id="password">
+            <p>forget your password <a href="#">click here</a></p>
+            <input type="button" value="login now" class="btn" id="login-now-btn">
+            <script src="script.js"></script>
+            <p>or login with</p>
+            <div class="buttons">
+                <a href="#">google</a>
+                <a href="#">facebook</a>
+            </div>
+            <p>don't have an account <a href="#">create one</a></p>
+        </form>
+    </div>
+
+    <!-- subscribe form -->
+    <div id="subscribe-form-container">
+        <span class="fa-solid fa-xmark" id="close-subscribe-btn"></span>
+
+        <form>
+            <h3>subscribe now</h3>
+            <input type="email" placeholder="email" class="box">
+            <select class="box">
+                <option value="option1">$129 MONTHLY</option>
+                <option value="option2">$599 6 MONTHS</option>
+            </select>
+            <input type="button" value="subscribe now" class="btn" id="subscribe-now-btn">
+        </form>
+    </div>
+
+    <!-- home section starts -->
+    <section class="home" id="home">
+        <h1 class="home-parallax" data-speed="-2">Looking for GameZ!?</h1>
+        <img class="home-parallax" data-speed="5" src="POpular games 1.png" alt="">
+        <button type="button" class="btn" id="subscribe-btn"><span>Subscribe</span></button>
+    </section>
+
+    <script src="https://kit.fontawesome.com/9c4d9d41f2.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            border-radius: 50%;
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #3e8e41;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .success-message {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #dff0d8;
+            color: #3c763d;
+            border: 1px solid #d6e9c6;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        /* Media Queries */
+        @media only screen and (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 10px;
+            }
+            input[type="text"] {
+                margin-bottom: 10px;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .container {
+                margin: 10px;
+                padding: 5px;
+            }
+            input[type="text"] {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="paypal.jpg" alt="Logo 1" class="logo">
+            <img src="unnamed.jpg" alt="Logo 2" class="logo">
+        </div>
+        <h1 style="color: #333; margin-bottom: 20px;">Payment Gateway</h1>
+        <form id="payment-form">
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" placeholder="1234-5678-9012-3456">
+            <label for="expiration-date">Expiration Date:</label>
+            <input type="text" id="expiration-date" placeholder="MM/YY">
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" placeholder="123">
+            <button type="submit">Pay Now</button>
+        </form>
+        <div class="success-message" id="success-message">
+            Payment successful! Thank you for your purchase.
+        </div>
+    </div>
+
+    <script>
+
+
+    const form = document.getElementById('payment-form');
+    const successMessage = document.getElementById('success-message');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const cardNumber = document.getElementById('card-number').value;
+        const expirationDate = document.getElementById('expiration-date').value;
+        const cvv = document.getElementById('cvv').value;
+
+        // Basic form validation
+        if (!cardNumber || !expirationDate || !cvv) {
+            alert('Please fill in all fields');
+            return;
+        }
+
+        // Additional validation
+        if (!/^\d{4}-\d{4}-\d{4}-\d{4}$/.test(cardNumber)) {
+            alert('Invalid card number format. Use 1234-5678-9012-3456.');
+            return;
+        }
+
+        if (!/^\d{2}\/\d{2}$/.test(expirationDate)) {
+            alert('Invalid expiration date format. Use MM/YY.');
+            return;
+        }
+
+        if (!/^\d{3}$/.test(cvv)) {
+            alert('Invalid CVV format. Use 3 digits.');
+            return;
+        }
+
+        // Simulate payment processing
+        alert('Processing payment...');
+        successMessage.style.display = 'block'; // Show success message
+        form.reset(); // Reset the form fields
+        
+        // Store payment success status
+        localStorage.setItem('paymentSuccess', 'true');
+
+        // Redirect to the main home page after a short delay
+        setTimeout(() => {
+            window.location.href = 'games.html'; // Redirect to your games page
+        }, 2000); // Redirects after 2 seconds
+    });
+</script>
+
+
+    </script>
+</body>
+</html>
